@@ -20,3 +20,4 @@ gpg --edit-key 561B9E443A91A0A7A257ACF201EE56537872D793 #When I execute this ins
 gpg --sign-key 01EE56537872D793 #It's basically my way of saying, "I have personally verified that this key really belongs to the owner of that ID."
 gpg --verify MICOMPA_doc_no_cifrado_firmado.txt #When I execute this instruction, I am not opening a sealed envelope, but rather checking the authenticity seals of a document that is perfectly legible.
 gpg --output doc_no_cifrado_firmado_binario.txt --sign doc_no_cifrado.txt #Instead of sealing an open letter, I would put the message in a sealed and compressed envelope that can only be read correctly if you use my tools to open it.
+gpg --verify MICOMPA_doc_no_cifrado_firmado_binario.txt #I verify that my colleague's document is indeed signed
