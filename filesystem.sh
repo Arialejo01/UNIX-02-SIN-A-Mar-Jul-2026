@@ -6,3 +6,16 @@ ls
 cd /proc
 #view CPU info
 cat cpuinfo
+gcc saludo.c -o saludobin
+move
+sudo mv saludobin /bin/
+saludibin
+#print working Directory
+pwd
+#show file types
+ls -F
+#change directory to root
+cd /
+#toilet numbers
+ls -i
+
