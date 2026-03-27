@@ -17,3 +17,4 @@ gpg --decrypt MICOMPA_cifrado_doc.txt #With this command, I take that file that 
 gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt #This command is great because here I'm not hiding anything, but rather giving my digital "word of honor"!
 gpg --verify MICOMPA_doc_no_cifrado_firmado.txt #When I execute this instruction, I am not opening a sealed envelope, but rather checking the authenticity seals of a document that is perfectly legible.
 gpg --edit-key 561B9E443A91A0A7A257ACF201EE56537872D793 #When I execute this instruction, I don't just perform a single action and stop. Instead, I enter edit mode on the key that corresponds to that fingerprint. It's as if I open Caesar's entire file and wait for you to tell me what you want to change.
+gpg --sign-key 01EE56537872D793 #It's basically my way of saying, "I have personally verified that this key really belongs to the owner of that ID."
