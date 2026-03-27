@@ -22,3 +22,4 @@ gpg --verify MICOMPA_doc_no_cifrado_firmado.txt #When I execute this instruction
 gpg --output doc_no_cifrado_firmado_binario.txt --sign doc_no_cifrado.txt #Instead of sealing an open letter, I would put the message in a sealed and compressed envelope that can only be read correctly if you use my tools to open it.
 gpg --verify MICOMPA_doc_no_cifrado_firmado_binario.txt #I verify that my colleague's document is indeed signed
 gpg --output firma_separada_doc_no_cifrado.sig --detach-sign doc_no_cifrado.txt #Or I become a notary who issues an independent certificate. Unlike previous methods where I wrapped the message or appended the signature, here I do something very elegant: I leave your original file exactly as it is and create a second file containing only the signature.
+
