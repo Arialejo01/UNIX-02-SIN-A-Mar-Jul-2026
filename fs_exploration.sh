@@ -14,3 +14,9 @@ sudo parted -l && echo -e "\n---\n" %% lsblk -f && echo -e "\n---\n"
 parted -l
 #It displays detailed information about block devices (disks, partitions, volumes) including their file system, label, UUID, and type.
 lsblk -f
+#Its main function is to evaluate two expressions and return true only if both sides are true. If either side is false, the result will be false.
+&&
+#This command checks if the /sys/firmware/efi directory exists, indicating that the system is running under UEFI. If it exists, it prints "UEFI"; otherwise, it displays "BIOS," allowing for quick identification of the firmware used at boot.
+[ -d /sys/firmware/efi ] && echo "UEFI" || echo "BIOS"
+#(Logical OR or logical "or") evaluates two expressions and returns true if at least one of them is true, functioning like a "short circuit": if the first expression is true, it does not evaluate the second.
+||
