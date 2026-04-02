@@ -20,3 +20,5 @@ lsblk -f
 [ -d /sys/firmware/efi ] && echo "UEFI" || echo "BIOS"
 #(Logical OR or logical "or") evaluates two expressions and returns true if at least one of them is true, functioning like a "short circuit": if the first expression is true, it does not evaluate the second.
 ||
+#On Unix/Linux systems, it displays detailed information and metadata about the test.txt file.
+stat test.txt
