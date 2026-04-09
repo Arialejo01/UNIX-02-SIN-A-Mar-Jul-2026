@@ -28,3 +28,6 @@ total 8
 #4096: The size of the directory's metadata in bytes.
 #Apr 9 12:19: The date and time the directory was last modified.
 #. / ..: The name of the directory (. representing "here" and .. representing "one level up").
+
+stat . #Displays highly detailed system metadata and status information (like exact timestamps, permissions, and device location) for the current directory.
+Device: 7,4 #indicates the specific physical or virtual storage drive (major ID 7, minor ID 4) where your current directory is saved
