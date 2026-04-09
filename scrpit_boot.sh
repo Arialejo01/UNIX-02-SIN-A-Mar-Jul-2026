@@ -31,3 +31,9 @@ total 8
 
 stat . #Displays highly detailed system metadata and status information (like exact timestamps, permissions, and device location) for the current directory.
 Device: 7,4 #indicates the specific physical or virtual storage drive (major ID 7, minor ID 4) where your current directory is saved
+
+ls -lt #Lists files in a detailed long format, sorted by modification time with the newest files appearing first
+whoami #Displays the username of the currently logged-in user
+pwd #Prints the full absolute path of your current working directory (Print Working Directory)
+ls /etc | head -20 #Lists the contents of the /etc directory and uses a pipe (|) to display only the first 20 lines of the output
+ls /dev | tail -20 #Lists the contents of the /dev directory and uses a pipe (|) to display only the last 20 lines of the output
