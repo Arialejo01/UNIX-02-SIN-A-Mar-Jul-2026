@@ -4,3 +4,4 @@ sudo apt install -y git vim make gcc libncurses-dev flex bison bc cpio libelf-de
 git clone --depth 1 https://github.com/torvalds/linux.git #Downloads only the most recent version (--depth 1) of the official Linux kernel source code to save time and space
 cd linux #Changes the current directory to the newly downloaded linux folder
 make menuconfig #Opens a text-based, interactive graphical menu to configure the settings before compiling the Linux kernel
+make menuconfig
