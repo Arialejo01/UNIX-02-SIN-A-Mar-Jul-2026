@@ -18,3 +18,9 @@ chmod u+x script.sh
 chmod o-r secreto.txt
 #Grants read and write permissions to the owner, while completely revoking read, write, and execute permissions for both the group and others on privado.
 chmod u+rw,go-rwx privado
+#Attempts to write "hola" to a protected file but fails with a permission error because the redirection (>) is executed by your normal user, not by sudo.
+sudo echo "hola" > /etc/archivo_protegio
+#Successfully writes "hola" to a protected file using root privileges, completely hiding the output from your terminal screen.
+echo "hola" | sudo tee /etc/archivo_protegido > /dev/null
+#Successfully writes "hola" to a protected file using root privileges and simultaneously prints "hola" back to your terminal screen.
+echo "hola" | sudo tee /etc/archivo_protegido
