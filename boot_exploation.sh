@@ -24,3 +24,21 @@ sudo echo "hola" > /etc/archivo_protegio
 echo "hola" | sudo tee /etc/archivo_protegido > /dev/null
 #Successfully writes "hola" to a protected file using root privileges and simultaneously prints "hola" back to your terminal screen.
 echo "hola" | sudo tee /etc/archivo_protegido
+#This command appends the string "chao" to a system-protected file named /etc/archivo_protegido using root privileges.
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido'
+#This command displays the content of the file `/etc/archivo_protegido` in your terminal.
+cat /etc/archivo_protegido
+#Opens a login shell as the root user, fully loading the root environment and setting the directory to root's home.
+sudo -i
+#Closes the current terminal session or logs you out of the currently active user shell.
+exit
+#Switches you to the root user account but generally retains your original user's environment variables.
+sudo su
+#Switches to the root user (or a specified user) and simulates a full login to load their specific environment.
+su -
+#Lists all local branches in your current Git repository and highlights the one you are currently working on.
+git branch
+#Prints the actual path to your home directory because double quotes allow the $HOME environment variable to expand.
+echo "$HOME"
+#Prints the literal text "$HOME" because single quotes treat everything as raw text and prevent variable expansion.
+echo '$HOME'
