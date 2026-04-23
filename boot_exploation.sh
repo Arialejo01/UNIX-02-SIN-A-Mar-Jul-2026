@@ -42,3 +42,19 @@ git branch
 echo "$HOME"
 #Prints the literal text "$HOME" because single quotes treat everything as raw text and prevent variable expansion.
 echo '$HOME'
+#Creates or overwrites hola.sh by inserting the shebang #!/bin/sh to define the shell interpreter.
+echo '#!/bin/sh' > hola.sh
+#Appends an echo command to the end of the hola.sh file without overwriting the existing content.
+echo 'echo "Hola desde mi primer script"' >> hola.sh
+#Outputs the full contents of the hola.sh file to the terminal screen.
+cat hola.sh
+#Attempts to run the script in the current directory, which will initially fail due to missing execute permissions.
+./hola.sh
+#Displays detailed file information for hola.sh, allowing you to see its current read/write/execute permissions.
+ls -l hola.sh
+#Adds execute permissions to the hola.sh file, making it a runnable program.
+chmod +x hola.sh
+#Displays the file details again to verify that the execute permissions have been successfully added.
+ls -l hola.sh
+#Successfully runs the script, outputting the text "Hola desde mi primer script" to the terminal.
+./hola.sh
