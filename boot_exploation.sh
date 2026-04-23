@@ -58,3 +58,11 @@ chmod +x hola.sh
 ls -l hola.sh
 #Successfully runs the script, outputting the text "Hola desde mi primer script" to the terminal.
 ./hola.sh
+#Likely results in an error due to a missing space, as the system will search for an executable named "ls/etc" rather than listing the contents of the /etc directory.
+ls/etc
+#Simply prints the literal text "touch /etc/prueba.txt" to the terminal rather than executing the command to create the file.
+echo touch /etc/prueba.txt
+#Creates a new directory named mi_carpeta directly inside your user's home folder.
+mkdir ~/mi_carpeta
+#Simply prints the literal text "apt install cowsay" to the terminal rather than actually running the package manager to install the program.
+echo apt install cowsay
