@@ -66,3 +66,13 @@ echo touch /etc/prueba.txt
 mkdir ~/mi_carpeta
 #Simply prints the literal text "apt install cowsay" to the terminal rather than actually running the package manager to install the program.
 echo apt install cowsay
+#Creates a new, empty file named prueba.txt or updates its timestamp if it already exists.
+touch prueba.txt
+#Restricts the file's permissions so that strictly the owner can read and write to it, denying access to everyone else.
+chmod 600 prueba.txt
+#Displays the detailed information for prueba.txt so you can verify the newly applied 600 (read/write for owner) permissions.
+ls -l prueba.txt
+#Modifies the file permissions to give the owner full control (read, write, execute) while allowing everyone else to read and execute it.
+chmod 755 prueba.txt
+#Displays the file details once more to confirm that the 755 permissions have been successfully applied.
+ls -l prueba.txt
