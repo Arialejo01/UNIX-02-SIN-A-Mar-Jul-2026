@@ -128,3 +128,30 @@ ls -l hello.sh
 # User: Read & Write (rw-)
 # Group: Read only (r--)
 # Others: Read only (r--)
+# --- Level 8: Changing Permissions (chmod) ---
+
+# Navigate to the Documents directory
+cd ~/Documents
+
+# Try to execute the script without execute permissions
+# This should result in a "Permission denied" error
+./hello.sh
+
+# Add execute permission (x) to the owner (u) of the file
+chmod u+x hello.sh
+
+# List the file to verify the new permissions (now showing -rwxr--r--)
+ls -l hello.sh
+
+# Execute the script now that it has the correct permissions
+./hello.sh
+
+# Additional examples of symbolic chmod:
+# Add write permission to the group
+chmod g+w hello.sh
+
+# Remove read permission from others
+chmod o-r hello.sh
+
+# Give everyone execute permission
+chmod a+x hello.sh
