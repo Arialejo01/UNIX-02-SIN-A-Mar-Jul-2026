@@ -63,3 +63,20 @@ cd ~
 
 # Confirming the final position
 pwd
+
+# --- Level 5: File Listings and Metadata ---
+
+# Long listing of the /var/log directory to see file details
+ls -l /var/log
+
+# Sort files by modification time (newest first)
+ls -lt /var/log
+
+# Sort files by size (largest first)
+ls -lS /var/log
+
+# Reverse the sorting order (e.g., smallest files first)
+ls -lSr /var/log
+
+# List directory contents in reverse alphabetical order
+ls -r
