@@ -108,3 +108,23 @@ sudo sl
 # 6. Using 'sudo' to run a command as a different specific user
 # The -u option allows you to specify the target account
 sudo -u sysadmin sl
+
+# --- Level 7: Permissions ---
+
+# Navigate to the Documents directory using the home shortcut (~)
+cd ~/Documents
+
+# Display detailed information (long listing) for the 'hello.sh' file
+# This shows the 10-character permission string (e.g., -rw-r--r--)
+ls -l hello.sh
+
+# Note: The first character indicates the file type:
+# '-' = Ordinary file
+# 'd' = Directory
+# 'l' = Symbolic link
+
+# The permission groups are: [User][Group][Others]
+# Example: -rw-r--r-- means:
+# User: Read & Write (rw-)
+# Group: Read only (r--)
+# Others: Read only (r--)
