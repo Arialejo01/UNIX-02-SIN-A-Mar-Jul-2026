@@ -28,3 +28,10 @@ ls -lr
 aptitude moo
 aptitude -v moo
 aptitude -vv moo
+
+# --- Level 3: Navigation - Print Working Directory ---
+
+# Display the current location in the file system
+pwd
+
+# Note: The '~' symbol in the prompt represents the user's home directory (/home/sysadmin)
