@@ -35,3 +35,31 @@ aptitude -vv moo
 pwd
 
 # Note: The '~' symbol in the prompt represents the user's home directory (/home/sysadmin)
+
+# --- Level 4: Navigation - Changing Directories (cd) ---
+
+# Navigate to the Documents directory using a relative path
+cd Documents
+
+# Move to the system root directory (Absolute path)
+cd /
+
+# Return to the sysadmin home directory using its absolute path
+cd /home/sysadmin
+
+# Navigate to a nested directory using a relative path
+# First, ensure you are in the correct starting point
+cd ~
+# Creating the structure if it doesn't exist for the example (Optional for the script)
+mkdir -p Documents/School/Art 
+cd Documents/School/Art
+
+# Use shortcuts to navigate:
+# Move up one level to the 'School' directory
+cd ..
+
+# Quickly return to the home directory from anywhere
+cd ~
+
+# Confirming the final position
+pwd
