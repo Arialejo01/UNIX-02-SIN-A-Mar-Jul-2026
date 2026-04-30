@@ -128,6 +128,7 @@ ls -l hello.sh
 # User: Read & Write (rw-)
 # Group: Read only (r--)
 # Others: Read only (r--)
+
 # --- Level 8: Changing Permissions (chmod) ---
 
 # Navigate to the Documents directory
@@ -155,6 +156,7 @@ chmod o-r hello.sh
 
 # Give everyone execute permission
 chmod a+x hello.sh
+
 # --- Level 9: Changing Ownership (chown) ---
 
 # Navigate to the Documents directory
@@ -178,3 +180,29 @@ ls -l hello.sh
 # Execute the script using 'sudo'
 # This works because it runs the command with root privileges
 sudo ./hello.sh
+
+# --- Level 10: File Visualization (cat, head, and tail) ---
+
+# Navigate to the Documents directory
+cd ~/Documents
+
+# Use 'cat' to display the entire content of a small file
+cat animals.txt
+
+# Use 'cat' to see a larger file (alpha.txt)
+# This shows all 26 lines at once
+cat alpha.txt
+
+# Preview the first 10 lines of a file (default behavior)
+head alpha.txt
+
+# Preview the last 10 lines of a file (default behavior)
+tail alpha.txt
+
+# Use the -n option to specify a custom number of lines
+# Display the first 5 lines of alpha.txt
+head -n 5 alpha.txt
+
+# Display the last 5 lines of alpha.txt
+tail -n 5 alpha.txt
+
