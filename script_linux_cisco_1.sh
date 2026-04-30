@@ -155,3 +155,26 @@ chmod o-r hello.sh
 
 # Give everyone execute permission
 chmod a+x hello.sh
+# --- Level 9: Changing Ownership (chown) ---
+
+# Navigate to the Documents directory
+cd ~/Documents
+
+# List all files to check the current owner (should be 'sysadmin')
+ls -l
+
+# Change the owner of 'hello.sh' from 'sysadmin' to 'root'
+# Administrative privileges (sudo) are required for this action
+sudo chown root hello.sh
+
+# Verify the change in ownership
+# The 3rd column of 'ls -l' should now show 'root'
+ls -l hello.sh
+
+# Try to execute the script as 'sysadmin'
+# This will fail (Permission denied) because 'sysadmin' is no longer the owner
+./hello.sh
+
+# Execute the script using 'sudo'
+# This works because it runs the command with root privileges
+sudo ./hello.sh
