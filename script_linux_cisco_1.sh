@@ -206,3 +206,27 @@ head -n 5 alpha.txt
 # Display the last 5 lines of alpha.txt
 tail -n 5 alpha.txt
 
+# --- Level 11: Copying Files (cp) ---
+
+# Change directory to Documents
+cd ~/Documents
+
+# Copy the system password file to the current directory (.)
+# This requires read permission on the source and write on the destination
+cp /etc/passwd .
+
+# Verify the copy exists in the current folder
+ls
+
+# --- Level 11.1: Bit-level Copying (dd) ---
+
+# Return to the home directory
+cd ~
+
+# Create a 50MB file filled with zeros in the /tmp directory
+# /dev/zero is a special file that provides an infinite stream of zero bits
+# bs=1M sets the block size to 1 Megabyte, count=50 copies 50 blocks
+dd if=/dev/zero of=/tmp/swapex bs=1M count=50
+
+# Note: 'dd' can also be used to clone entire disks, such as:
+# dd if=/dev/sda of=/dev/sdb
