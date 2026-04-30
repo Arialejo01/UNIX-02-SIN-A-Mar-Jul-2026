@@ -80,3 +80,31 @@ ls -lSr /var/log
 
 # List directory contents in reverse alphabetical order
 ls -r
+
+# --- Level 6: Administrative Access (su and sudo) ---
+
+# 1. Attempting to run a restricted command as a normal user
+# This will return "Permission denied"
+sl
+
+# 2. Using 'su' (Substitute User)
+# 'su' alone opens a shell as root by default
+su
+
+# 3. Using 'su' with a login shell (Recommended)
+# These three commands are equivalent:
+su -
+su -l
+su --login
+
+# 4. Returning to the original user
+# Use 'exit' to close the administrative shell and return to 'sysadmin'
+exit
+
+# 5. Using 'sudo' (Superuser Do)
+# Executes a single command with root privileges safely
+sudo sl
+
+# 6. Using 'sudo' to run a command as a different specific user
+# The -u option allows you to specify the target account
+sudo -u sysadmin sl
