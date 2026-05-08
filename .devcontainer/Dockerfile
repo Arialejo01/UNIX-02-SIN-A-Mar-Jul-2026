@@ -235,6 +235,14 @@ PROMPT_COMMAND=__set_prompt
 EOF
 CMD ["/bin/zsh"]
 
+# Configuración del prompt para ZSH
+RUN cat >> /root/.zshrc <<'EOF'
 
+# ===== Prompt personalizado para ZSH =====
+# %F{color} inicia un color, %f lo cierra
+# %c es el directorio actual (equivalente a \W en bash)
+# %(?.VISTO.X) es un condicional nativo de zsh para los códigos de error
+PROMPT='%F{cyan}[Ariel-Guerrero]%f %F{yellow}%c%f %(?.%F{green}✓%f.%F{red}✗ %?%f) $ '
+EOF
 
 
