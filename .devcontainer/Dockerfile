@@ -218,31 +218,16 @@ RUN git config --system --add safe.directory '*' \
 # propia terminal integrada de VS Code, pero es buena práctica dejarla
 # definida para que la imagen sea usable también con Docker puro.
 # Prompt del curso para bash
-RUN cat >> /root/.bashrc <<'EOF'
 
-# ===== Prompt del curso =====
-__set_prompt() {
-    local ec=$?
-    local mark
-    if [ $ec -eq 0 ]; then
-        mark='\[\e[32m\]✓\[\e[0m\]'
-    else
-        mark="\[\e[31m\]✗ $ec\[\e[0m\]"
-    fi
-    PS1="\[\e[36m\][Ariel-Guerrero]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
-}
-PROMPT_COMMAND=__set_prompt
-EOF
-CMD ["/bin/zsh"]
+# Cambiar shell de login de root a zsh dentro de la imagen,
+# para que chsh ya no haga falta y todo sea consistente.
+RUN chsh -s /usr/bin/zsh root
 
-# Configuración del prompt para ZSH
+# Prompt institucional para los y las estudiantes del curso
 RUN cat >> /root/.zshrc <<'EOF'
 
-# ===== Prompt personalizado para ZSH =====
-# %F{color} inicia un color, %f lo cierra
-# %c es el directorio actual (equivalente a \W en bash)
-# %(?.VISTO.X) es un condicional nativo de zsh para los códigos de error
-PROMPT='%F{cyan}[Ariel-Guerrero]%f %F{yellow}%c%f %(?.%F{green}✓%f.%F{red}✗ %?%f) $ '
+# ===== Valida si un comando fue ejecutado correctamente =====
+PROMPT='%F{cyan}[Ariel-Guerrero]%f %F{yellow}%1~%f %(?.%F{green}✓.%F{red}✗ %?)%f %# '
 EOF
 
-
+CMD ["/usr/bin/zsh"]
