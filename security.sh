@@ -65,3 +65,32 @@ chown luna mi_archivo
 
 ls -l
 # Executes another long format listing to verify that the ownership change for mi_archivo was successful.
+groups
+# Displays the group memberships for the currently logged-in user to see which groups they belong to.
+
+groupadd grupo_test
+# Creates a new system group named 'grupo_test' for managing user permissions collectively.
+
+groups
+# Displays the group memberships again to verify the current user's groups.
+
+touch comun
+# Creates an empty
+
+groups
+# Displays the groups that the currently logged-in user belongs to.
+
+groupadd grupo_test
+# Creates a new user group named 'grupo_test' on the system.
+
+groups
+# Re-evaluates and displays the current user's group memberships.
+
+touch comun
+# Creates an empty file named 'comun' to evaluate its default permissions and group ownership.
+
+ls -l comun
+# Lists the detailed properties in long format specifically for the file 'comun'.
+
+cat /etc/group
+# Outputs the contents of the system's group file to verify the creation and details of all groups, including 'grupo_test'.
