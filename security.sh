@@ -111,3 +111,14 @@ chown luna:grupo_test mi_archivo
 
 ls -l mi_archivo
 # Executes a long format listing specifically for 'mi_archivo' to confirm that the owner and group changes were successful.
+mkdir -p proyecto/sub
+# Creates a directory named 'proyecto' and a subdirectory named 'sub' within it. The '-p' flag ensures parent directories are created as needed and prevents errors if they already exist.
+
+touch proyecto/readme proyecto/sub/datos
+# Creates two empty files simultaneously: 'readme' inside the 'proyecto' directory, and 'datos' inside the 'proyecto/sub' subdirectory.
+
+chown -R luna:grupo_test proyecto
+# Recursively (-R) changes both the owner and the group for the 'proyecto' directory and all of its contents, setting the owner to 'luna' and the group to 'grupo_test'.
+
+ls -lR proyecto
+# Lists the contents of the 'proyecto' directory and all its subdirectories recursively (-R) in long format (-l) to verify the new ownership and permissions.
