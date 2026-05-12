@@ -94,3 +94,20 @@ ls -l comun
 
 cat /etc/group
 # Outputs the contents of the system's group file to verify the creation and details of all groups, including 'grupo_test'.
+useradd -m -s /usr/bin/zsh ariel
+# Creates a new user account named 'ariel', generates a home directory for them (-m), and sets their default shell to zsh (-s).
+
+usermod -a -G grupo_test ariel
+# Modifies the user 'ariel' by appending (-a) them to the supplementary group (-G) named 'grupo_test' without removing them from other groups.
+
+chgrp grupo_test comun
+# Changes the group ownership of the file 'comun', assigning it to the group 'grupo_test'.
+
+ls -l comun
+# Lists the detailed properties in long format specifically for the file 'comun' to verify its new group ownership.
+
+chown luna:grupo_test mi_archivo
+# Changes both the owner and the group of the file 'mi_archivo', setting the user owner to 'luna' and the group owner to 'grupo_test'.
+
+ls -l mi_archivo
+# Executes a long format listing specifically for 'mi_archivo' to confirm that the owner and group changes were successful.
