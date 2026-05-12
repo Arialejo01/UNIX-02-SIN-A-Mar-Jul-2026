@@ -42,3 +42,26 @@ umask 027
 
 ls -l
 # Executes a secondary review to verify the cleanup of ACLs and the assignment of owners.
+umask 022
+# Sets the default file creation mask to 022, resulting in permissions of 644 (rw-r--r--) for new files and 755 (rwxr-xr-x) for directories.
+
+whoami
+# Displays the username of the currently logged-in user to verify the active account.
+
+echo "Hola" > mi_archivo
+# Creates a new file named mi_archivo (or overwrites it if it exists) and writes the string "Hola" into it.
+
+ls -l mi_archivo
+# Lists the detailed properties in long format specifically for mi_archivo to check its permissions and owner.
+
+ls -l
+# Lists all files and directories in the current location in long format to audit the workspace.
+
+useradd -m -s /usr/bin/zsh luna
+# Creates a new user account named 'luna', generates a home directory for them (-m), and sets their default shell to zsh (-s).
+
+chown luna mi_archivo
+# Changes the ownership of the file mi_archivo, assigning it to the newly created user 'luna'.
+
+ls -l
+# Executes another long format listing to verify that the ownership change for mi_archivo was successful.
