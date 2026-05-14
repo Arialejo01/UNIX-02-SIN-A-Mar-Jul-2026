@@ -161,7 +161,7 @@ groupadd --help
 
 # Search for the minimum, maximum, and system Group ID configurations
 # The '\|' symbol acts as an "OR" to search for multiple specific terms at once
-grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs
+c 
 
 # GID_MIN 1000
 # The lowest Group ID (GID) automatically assigned when creating a standard user group.
