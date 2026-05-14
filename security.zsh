@@ -121,4 +121,14 @@ chown -R luna:grupo_test proyecto
 # Recursively (-R) changes both the owner and the group for the 'proyecto' directory and all of its contents, setting the owner to 'luna' and the group to 'grupo_test'.
 
 ls -lR proyecto
-# Lists the contents of the 'proyecto' directory and all its subdirectories recursively (-R) in long format (-l) to verify the new ownership and permissions.
+
+# View the numeric identity of the current user # numeric user ID, primary group, secondary groups
+id
+
+# View all users on the system
+cat /etc/passwd | head -10
+
+#see the UID and GID from the actual user
+id -u #User ID
+id -g #principal Group ID
+id -G #all the groups
