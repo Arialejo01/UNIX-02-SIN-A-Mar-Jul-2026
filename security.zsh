@@ -158,3 +158,25 @@ grep -E "developers|operations|web_services" /etc/group
 
 # View main options
 groupadd --help
+
+# Search for the minimum, maximum, and system Group ID configurations
+# The '\|' symbol acts as an "OR" to search for multiple specific terms at once
+grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs
+
+# GID_MIN 1000
+# The lowest Group ID (GID) automatically assigned when creating a standard user group.
+
+# GID_MAX 60000
+# The highest Group ID (GID) automatically assigned when creating a standard user group.
+
+# SYS_GID_MIN 101
+# The lowest Group ID reserved for system groups (typically used for services, apps, and background processes).
+
+# SYS_GID_MAX 999
+# The highest Group ID reserved for system groups.
+
+# SUB_GID_MIN 100000
+# The starting ID for subordinate groups (mostly used for Docker/Podman containers and user namespaces to map permissions).
+
+# SUB_GID_MAX 600100000
+# The ending ID for subordinate groups.
