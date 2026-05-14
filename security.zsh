@@ -161,7 +161,7 @@ groupadd --help
 
 # Search for the minimum, maximum, and system Group ID configurations
 # The '\|' symbol acts as an "OR" to search for multiple specific terms at once
-c 
+grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs
 
 # GID_MIN 1000
 # The lowest Group ID (GID) automatically assigned when creating a standard user group.
@@ -180,3 +180,38 @@ c
 
 # SUB_GID_MAX 600100000
 # The ending ID for subordinate groups.
+
+# addgroup [options] group_name
+# Create groups with addgroup
+sudo addgroup design
+sudo addgroup --gid 2100 marketing
+sudo addgroup --system web_cache
+
+# Verify (Note: I fixed the syntax and typos so this command works correctly)
+grep "design\|marketing\|web_cache" /etc/group
+
+# Alternatively, using -E for cleaner syntax:
+# grep -E "design|marketing|web_cache" /etc/group
+
+# View which groups the current user belongs to
+groups
+id
+
+# Add user to a group using usermod (low level)
+usermod -aG developers $root
+usermod -aG design $root
+
+# Create a temporary group for the demo
+sudo groupadd temporary_group
+
+# Add the root user to the temporary group
+sudo usermod -aG temporary_group root
+
+# Verify the root user's identity and groups
+id root # has temporary_group
+
+# Now the MISTAKE: usermod without -a
+usermod -G developers root
+
+# This REMOVES all secondary groups except developers
+id root # lost all other groups
