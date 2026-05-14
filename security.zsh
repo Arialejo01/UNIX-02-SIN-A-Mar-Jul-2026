@@ -132,3 +132,29 @@ cat /etc/passwd | head -10
 id -u #User ID
 id -g #principal Group ID
 id -G #all the groups
+
+# View the 'root' group by filtering the output of the groups file
+cat /etc/group | grep root
+
+# Create a new directory named 'proyecto_unix' inside the user's home directory
+mkdir ~/proyecto_unix/
+
+# List all contents of the new directory in long format (-l), including hidden files (-a)
+ls -la ~/proyecto_unix/
+
+# groupadd [options] group_name
+# Create a simple group
+sudo groupadd developers
+sudo groupadd -g 2000 operations
+# System group (GID < 1000)
+sudo groupadd --system web_services
+# Specific GID
+
+# Verify that they were created (using basic grep, requires escaping the pipe \|)
+grep "developers\|operations\|web_services" /etc/group
+
+# Verify using -E (Extended regular expressions, cleaner syntax)
+grep -E "developers|operations|web_services" /etc/group
+
+# View main options
+groupadd --help
