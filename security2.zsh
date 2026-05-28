@@ -43,3 +43,14 @@ echo "PID del shell actual: $$"
 newgrp desarrolladores
 echo "PID dentro de newgrp: $$"
 # The PID is different - it's a child process
+
+# Create a group with a password: sudo groupadd grupo_restringido
+sudo gpasswd grupo_restringido
+# The system will ask for a password for the group
+
+# A user who does NOT belong to the group can unirse temporalmente si conoce la contraseña
+newgrp grupo_restringido
+# The system will ask for the group password
+# If the password is correct, you will be temporarily joined
+id - gn
+exit # Upon leaving, you lose your temporary membership
