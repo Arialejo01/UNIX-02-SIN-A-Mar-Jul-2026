@@ -8,8 +8,14 @@ touch ~/test_grupo_heredado.txt
 la -la ~/test_grupo_heredado.txt
 
 # View the current group
-id - gn
-echo "Grupo actual: $(id-gn)"
+id -gn
+echo "Grupo actual: $(id -gn)"
 # Create a file before newgrp
 touch ~/antes_de_newgrp.txt
-Is -la ~/antes_de_newgrp.txt
+ls -la ~/antes_de_newgrp.txt
+
+# Switch to the developers group
+newgrp desarrolladores
+# Verify that the active group changed      
+id -gn
+echo "Nuevo grupo activo: $(id -gn)"
