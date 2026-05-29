@@ -336,3 +336,68 @@ ps -e
 
 # You can use the -f (full) option to provide a more detailed output.
 # This adds
+
+# --- Level 18: Package Management ---
+
+# Package management is a system by which software can be installed, updated, 
+# queried, or removed from a file system. 
+# The two most popular package management systems in Linux are Debian and Red Hat. 
+# Ubuntu (commonly used in these virtual machines) is a derivative of Debian.
+
+# At the lowest level of Debian package management is the 'dpkg' command. 
+# Because 'dpkg' can be tricky for newer users, the Advanced Package Tool (apt), 
+# specifically 'apt-get', acts as a front-end program to make management much easier.
+# Note: A front-end program is an interface that users can see and interact with.
+
+# --- Important: Administrative Access ---
+# Many package management commands require administrative access, so they 
+# must be preceded by the 'sudo' command.
+
+# --- 1. Updating the Package List ---
+# Software packages are typically downloaded from repositories on internet servers. 
+# Before installing a package, you should always update your local list of 
+# available packages using the 'update' command.
+sudo apt-get update
+
+# --- 2. Searching for Packages ---
+# To search for keywords within these packages, use the apt-cache search command.
+# Basic syntax: apt-cache search [keyword]
+# You can use multiple keywords (like 'web server') to narrow the search.
+# Let's search for packages associated with the keyword 'cow':
+apt-cache search cow
+
+# --- 3. Installing Packages ---
+# Once you find the package you want to install, use the apt-get install command.
+# Basic syntax: sudo apt-get install [package]
+# Let's install the 'cowsay' package:
+sudo apt-get install cowsay
+
+# --- Good to Know: Cowsay! ---
+# The cowsay command generates an ASCII art picture of a configurable talking cow! 
+# Provide a word or phrase as an argument. We recommend putting the argument 
+# inside single quotes to prevent the shell from interpreting special characters.
+cowsay 'NDG Linux Unhatched'
+
+# --- 4. Upgrading Packages ---
+# The 'apt-get install' command can also upgrade a specific package if it is 
+# already installed and a newer version exists. 
+#
+# To upgrade ALL packages on the entire system, it is a two-step process:
+# Step 1: Update the cache of available packages.
+sudo apt-get update
+
+# Step 2: Run the upgrade command to update all packages and their dependencies.
+sudo apt-get upgrade
+
+# --- 5. Removing Packages ---
+# The apt-get command can either 'remove' or 'purge' a package.
+# The difference is:
+# - remove: Deletes the package files, but leaves the configuration files behind.
+# - purge: Completely deletes ALL files associated with the package, including configs.
+
+# Basic syntax for removing: sudo apt-get remove [package]
+# Basic syntax for purging:  sudo apt-get purge [package]
+
+# For example, to completely purge 'cowsay' from the system:
+# (You will be prompted to confirm with [Y/n]. Type 'y' and press Enter.)
+sudo apt-get purge cowsay
