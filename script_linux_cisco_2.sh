@@ -444,3 +444,56 @@ passwd sysadmin
 
 # Exit the root account and return to the normal user prompt
 exit
+
+# --- Level 20: I/O Redirection ---
+
+# Adding content to files in Linux can be done using text editors, but it can 
+# also be done quickly using a command-line feature called I/O redirection.
+# I/O (Input/Output) redirection allows you to send command output 
+# to files, devices, or other commands instead of the default destination.
+
+# --- The Three File Descriptors ---
+# When dealing with command input and output, there are three main pathways:
+# 1. Standard Input (STDIN): Information the command receives (usually keyboard input).
+# 2. Standard Output (STDOUT): Information the command displays (the successful result).
+# 3. Standard Error (STDERR): Error messages generated when a command fails.
+
+# Change to the Documents directory
+cd ~/Documents
+
+# --- Redirecting STDOUT with '>' (Overwrite) ---
+# To redirect STDOUT to a file, use the "greater than" symbol '>'.
+# Basic syntax: [COMMAND] > [FILE]
+
+# First, let's see the normal STDOUT of the cat command in the terminal:
+cat food.txt
+
+# Now, redirect the STDOUT of that command to a new file called newfile1.txt:
+# Note: No output is displayed in the terminal because it was sent directly to the file.
+cat food.txt > newfile1.txt
+
+# Verify that the content was redirected to the new file:
+cat newfile1.txt
+
+# --- Using 'echo' with Redirection ---
+# The echo command is used to print a specific output to the terminal:
+echo "Hello"
+
+# You can use echo with redirection to quickly write text into a file.
+# WARNING: Using a single '>' will OVERWRITE any existing content in the file!
+echo "I like food." > newfile1.txt
+
+# Verify the overwrite (the original "Food is good." is now gone):
+cat newfile1.txt
+
+# --- Appending Content with '>>' ---
+# To add content to the end of a file WITHOUT overwriting the existing text, 
+# use the double "greater than" symbol '>>' (Append):
+echo "This food is good." >> newfile1.txt
+
+# Verify that the new text was appended below the existing text:
+cat newfile1.txt
+
+# --- Important Note on Permissions ---
+# To redirect information into an existing file, the user executing the 
+# command must have write permissions for that specific file.
