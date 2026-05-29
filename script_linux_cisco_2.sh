@@ -253,3 +253,55 @@ shutdown +1 "Goodbye World!"
 
 # (Optional) Exit the root shell to return to your normal user account
 exit
+
+# --- Level 16: Network Configuration (ifconfig and ping) ---
+
+# The ifconfig command stands for "interface configuration" and is used 
+# to display information about the network configuration.
+# Basic syntax: ifconfig [OPTIONS] 
+# Note: The iwconfig command is similar, but it refers to wireless network interfaces.
+
+# Run ifconfig to see the current network interfaces
+ifconfig
+
+# --- Think About This: Network Interfaces ---
+# While not all network configurations are important for this module, 
+# you should look for a few key details in the output:
+# 1. 'eth0' is typically the primary network device. Its IPv4 address (inet addr) 
+#    might be something like 192.168.1.2, and its status will show as active (UP).
+# 2. 'lo' is known as the loopback device. It is a special network device 
+#    used by the system when it needs to send network-based data to itself 
+#    (e.g., 127.0.0.1).
+
+# Note: The ifconfig command can also be used to temporarily modify network 
+# configurations. However, since these changes usually need to be permanent, 
+# it is rarely used for that purpose nowadays.
+
+# --- Testing Connectivity (ping) ---
+# The ping command is used to verify connectivity between two computers. 
+# It sends "packets" (encapsulated units of data sent over a network) to 
+# another machine. Receiving a reply indicates that it is possible to connect.
+# Ping uses IP addresses or hostnames to identify the target machine.
+
+# By default, ping will send packets continuously until you interrupt it 
+# with the break command (Ctrl+C). 
+# To limit the number of pings, use the -c option followed by the count.
+
+# Example of a successful ping (sending exactly 4 packets):
+ping -c 4 192.168.1.2
+
+# If the ping fails, you will receive a message indicating that the target 
+# machine could not be found (Destination Host Unreachable):
+ping -c 4 192.168.1.3
+
+# --- Good to Know: Firewalls and Hostnames ---
+# A ping command might fail even if the remote machine is connected to the network. 
+# As a security measure, some administrators configure their computers, or even 
+# entire networks, to not respond to ping requests.
+# 
+# Ping also works with hostnames or domain names (like yahoo.com). Doing this 
+# first can save time: if a hostname ping succeeds, it proves that proper name 
+# resolution (DNS) is working AND that network routing is functioning correctly.
+
+# Exit the root account and return to the normal user prompt
+exit
