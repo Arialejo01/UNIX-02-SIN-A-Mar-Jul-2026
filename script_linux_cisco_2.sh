@@ -85,3 +85,125 @@ ls Work
 # To delete a file inside a directory, the user must have write and execute 
 # permissions on that specific directory. Normally, ordinary users only have 
 # this type of permission in their home directory and its subdirectories.
+
+# --- Level 14: Filtering Input (grep) ---
+
+# The grep command is a text filter that searches lines in an input
+# and returns those that match a given pattern.
+# Basic syntax: grep [OPTIONS] PATTERN [FILE]
+
+# Change to the Documents directory
+cd ~/Documents
+
+# (Assuming /etc/passwd was copied in a previous step)
+cp /etc/passwd .
+
+# The passwd file contains details of system accounts and users.
+# We can use grep to filter and get information about a specific user (sysadmin).
+# 'sysadmin' is the pattern argument, and 'passwd' is the file argument.
+grep sysadmin passwd
+
+# --- Regular Expressions (Regex) ---
+# Regular expressions have two common forms: basic and extended.
+# Most commands that use regex can interpret basic regex. Extended regex 
+# typically requires a command option (like grep -E or egrep) to work.
+
+# Basic Regex Characters:
+# .    -> Any single character
+# [ ]  -> Any specified character within the brackets
+# [^]  -> Any character NOT specified within the brackets
+# *    -> Zero or more of the preceding character
+# ^    -> Start of the line (if it's the first character of the pattern)
+# $    -> End of the line (if it's the last character of the pattern)
+
+# Extended Regex Characters (used with egrep or grep -E):
+# +    -> One or more of the preceding pattern
+# ?    -> The pattern is optional
+# { }  -> Specify minimum, maximum, or exact matches
+# |    -> Alternation - logical "or"
+# ( )  -> Used to create groups
+
+# --- Basic Patterns: Anchors ---
+# It is recommended to enclose patterns in single quotes to prevent 
+# the shell from misinterpreting special characters.
+
+# The pattern 'root' appears many times in the /etc/passwd file:
+grep 'root' passwd
+
+# The anchor ^ indicates the pattern must appear at the BEGINNING of the line.
+grep '^root' /etc/passwd
+
+# Let's examine the alpha-first.txt file:
+cat alpha-first.txt
+
+# The anchor $ indicates the pattern must appear at the END of the line.
+# Find lines that end with 'r':
+grep 'r$' alpha-first.txt
+# Note: The $ must be the last character in the pattern to act as an anchor.
+
+# --- Matching Characters Using . (Dot) ---
+# The . character represents any single character except a newline.
+
+# Examine the red.txt file:
+cat red.txt
+
+# Find any line with 'r', followed by exactly two characters, ending with 'f':
+grep 'r..f' red.txt
+
+# Find four-letter words starting with 'r' and ending with 'd':
+grep 'r..d' red.txt
+
+# Find all lines containing a sequence of at least four characters:
+grep '....' red.txt
+
+# The line just has to contain the pattern, it doesn't have to be an exact match:
+grep 'r..t' /etc/passwd
+
+# --- Finding a Single Character Using [] ---
+# Brackets [] are used to indicate single characters or ranges.
+
+# Examine the profile.txt file:
+cat profile.txt
+
+# Find all lines containing a number (0 through 9):
+grep '[0-9]' profile.txt
+
+# Insert a ^ as the first character INSIDE brackets to negate. 
+# This finds lines containing non-numeric characters:
+grep '[^0-9]' profile.txt
+# Note: This means lines containing non-numbers, not lines without numbers.
+
+# If special characters are placed inside brackets, they are treated literally. 
+# This only finds lines containing a literal period (.):
+grep '[.]' profile.txt
+
+# --- Repeating Characters Using * ---
+# The * indicates the absence (zero) or presence (one or more) 
+# of the preceding character or pattern.
+
+# Find 'r', followed by zero or more 'e's, ending with 'd'
+# Matches: red, reeed, rd, reed
+grep 're*d' red.txt
+
+# You can combine [] and *. This matches zero or more 'o' or 'e':
+grep 'r[oe]*d' red.txt
+
+# Used alone with a single character, * is not very useful because 
+# it can mean ZERO occurrences, effectively matching every line:
+grep 'z*' red.txt
+grep 'e*' red.txt
+
+# To make it useful, include something else. This matches at least one 'e':
+grep 'ee*' red.txt
+
+# --- Standard Input ---
+# If no filename is provided, grep will act on standard input (your keyboard).
+# It becomes interactive: you type, and grep filters as you go.
+# Press Ctrl+D when you are ready to return to the prompt.
+
+# Return to home directory
+cd ~
+
+# --- Fun Fact ---
+# Linux is open source. This makes it extremely versatile!
+
