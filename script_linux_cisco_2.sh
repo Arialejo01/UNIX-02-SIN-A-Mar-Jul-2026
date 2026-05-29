@@ -401,3 +401,46 @@ sudo apt-get upgrade
 # For example, to completely purge 'cowsay' from the system:
 # (You will be prompted to confirm with [Y/n]. Type 'y' and press Enter.)
 sudo apt-get purge cowsay
+
+# --- Level 19: Updating User Passwords (passwd) ---
+
+# The passwd command is used to update a user's password. 
+# Users can only change their own passwords, while the root user 
+# can update the password for any user.
+# Basic syntax: passwd [OPTIONS] [USER]
+
+# As the sysadmin user, we can change our own password.
+# When prompted, you will enter the current password once, 
+# and the new password twice. 
+# Note: For security reasons, no characters are displayed while typing the password.
+passwd
+
+# If the user wants to see information about their password status, 
+# they can use the -S option:
+passwd -S sysadmin
+
+# --- Understanding the passwd -S Output ---
+# Example output: sysadmin P 12/20/2017 0 99999 7 -1
+# 
+# Field 1 (sysadmin): Username.
+# Field 2 (P): Password status. 
+#   'P' indicates a usable password.
+#   'L' indicates a locked password.
+#   'NP' indicates no password.
+# Field 3 (12/20/2017): The date the password was last updated.
+# Field 4 (0): Minimum days before the user is allowed to change the password.
+# Field 5 (99999): Maximum days until the password expires.
+# Field 6 (7): Number of days before expiration that the user receives a warning.
+# Field 7 (-1): Number of days after expiration that the account remains active.
+
+# --- Administrative Access ---
+# Switch to the root account
+# (If prompted for a password, use 'netlab123')
+su root
+
+# The root user can change any user's password without needing the current one.
+# To change the password for the 'sysadmin' user:
+passwd sysadmin
+
+# Exit the root account and return to the normal user prompt
+exit
