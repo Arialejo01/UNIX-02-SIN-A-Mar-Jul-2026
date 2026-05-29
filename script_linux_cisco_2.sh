@@ -305,3 +305,34 @@ ping -c 4 192.168.1.3
 
 # Exit the root account and return to the normal user prompt
 exit
+
+# --- Level 17: Viewing Processes (ps) ---
+
+# Executing a command results in something called a process. 
+# In the Linux operating system, processes run based on the privileges 
+# of the user running the command. 
+
+# Generally, regular users (like sysadmin) cannot control another user's processes. 
+# Users with administrative privileges (like root) can control any process 
+# from any user, including stopping them.
+
+# The ps command is used to list processes.
+# Basic syntax: ps [OPTIONS]
+
+# By default, the ps command will show the processes running in the current terminal.
+ps
+
+# --- Understanding the Output ---
+# PID: Process Identifier. A unique number for each process. This is very useful 
+#      when you need to control or stop a process using its ID.
+# TTY: The name of the terminal where the process is running. Helps distinguish 
+#      between different processes that share the same name.
+# TIME: The total amount of CPU processing time used by a given process.
+# CMD: The command that started the process.
+
+# Instead of seeing only the processes in the current terminal, 
+# you can use the -e option to display ALL processes running on the system:
+ps -e
+
+# You can use the -f (full) option to provide a more detailed output.
+# This adds
