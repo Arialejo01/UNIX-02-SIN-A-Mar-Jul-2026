@@ -207,3 +207,49 @@ cd ~
 # --- Fun Fact ---
 # Linux is open source. This makes it extremely versatile!
 
+# --- Level 15: Shutting Down (shutdown) ---
+
+# The shutdown command prepares the system for a safe system shutdown.
+# All logged-in users are notified that the system is going down, and new 
+# logins are prevented in the five minutes prior to a full system shutdown.
+# Basic syntax: shutdown [OPTIONS] TIME [MESSAGE]
+
+# The shutdown command requires administrative access.
+# Switch to the root account for this section using the following command.
+# (If prompted for a password in your lab, use 'netlab123')
+su -
+
+# --- Note for Lab Environments ---
+# In virtual lab environments, the machines often won't actually shut down! 
+# Use the command, but be aware that instead of powering off, you will simply 
+# return to the command line. You might need to press Enter or Ctrl+C to get 
+# the prompt back.
+shutdown now
+
+# --- Time Arguments ---
+# Unlike other commands used to halt the system, the shutdown command 
+# requires a time argument to specify when the shutdown should begin. 
+# The formats for this time argument can be:
+# 1. 'now' (immediately)
+# 2. A specific time of day in 'hh:mm' format
+# 3. A delay in minutes using the '+minutes' format
+
+# --- Think About This: System Time ---
+# Your system clock might be configured to a different time zone than yours. 
+# To verify the terminal time, use the date command. 
+# The default output format is: weekday month day hour:minute:second UTC year
+# (The 'UTC' indicates the time is displayed in Coordinated Universal Time).
+date
+
+# Schedule a shutdown at a specific time (e.g., 01:51)
+# Note: If practicing, check your 'date' output first and set this 1-2 minutes ahead.
+shutdown 01:51
+
+# --- Adding a Broadcast Message ---
+# The shutdown command also has the option to add a message as an argument. 
+# This message will appear on the terminals of all logged-in users.
+# For example, to schedule a shutdown in 1 minute with a custom message:
+shutdown +1 "Goodbye World!"
+
+# (Optional) Exit the root shell to return to your normal user account
+exit
