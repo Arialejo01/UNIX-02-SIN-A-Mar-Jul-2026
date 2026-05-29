@@ -497,3 +497,89 @@ cat newfile1.txt
 # --- Important Note on Permissions ---
 # To redirect information into an existing file, the user executing the 
 # command must have write permissions for that specific file.
+
+# --- Level 21: Text Editors (vi/vim) ---
+
+# The primary text editor for Linux and UNIX is a program called vi.
+# While there are many editors (like nano or emacs), vi has major advantages:
+# 1. It is available on ALL Linux distributions worldwide.
+# 2. It runs in both CLI (Command Line Interface) and GUI (Graphical User Interface).
+# 3. Its core functions have existed for decades; knowledge of vi never expires.
+
+# Note: The correct pronunciation of vi is "vee-eye" (v followed by i).
+# Most modern Linux systems actually use 'vim' (vi improved), but it functions 
+# just like vi with extra features.
+
+# To start vi, type the command followed by the file path:
+vi newfile.txt
+
+# --- The Three Modes of vi ---
+# 1. Command Mode: Used for navigation and manipulating text.
+# 2. Insert Mode: Used for typing and adding text.
+# 3. Ex Mode (Last Line Mode): Used for saving, exiting, and configuring.
+# Press the 'Esc' key to return to Command Mode at any time.
+
+# --- Command Mode: Movement ---
+# Movement format: [count] motion
+# h: Left
+# j: Down (Next line)
+# k: Up (Previous line)
+# l: Right
+# w: One word forward
+# b: One word backward
+# ^: Start of line
+# $: End of line
+# Note: You can prefix these with a number (e.g., 5h moves 5 spaces left).
+# Line navigation:
+# [number]G : Move to a specific line (e.g., 5G moves to line 5).
+# 1G or gg  : Move to the first line.
+# G         : Move to the last line.
+
+# --- Command Mode: Actions (Cut, Copy, Paste) ---
+# Action format: [action] [count] [motion]
+# d (Delete): Equivalent to "Cut"
+#   dd  : Delete current line
+#   3dd : Delete next three lines
+#   dw  : Delete current word
+# c (Change): Deletes text, saves to buffer, and enters Insert mode.
+#   cc  : Change current line
+#   cw  : Change current word
+# y (Yank): Equivalent to "Copy"
+#   yy  : Yank current line
+#   yw  : Yank current word
+# p/P (Put): Equivalent to "Paste"
+#   p   : Paste after the cursor
+#   P   : Paste before the cursor
+
+# --- Command Mode: Searching ---
+# / [pattern] : Search forward from the cursor. Press Enter to search.
+# ? [pattern] : Search backward from the cursor. Press Enter to search.
+# n : Move to the next matching result.
+# N : Move to the previous matching result.
+
+# --- Insert Mode ---
+# Used to add text to the document. Press these keys in Command Mode:
+# i : Insert exactly at the cursor position.
+# I : Insert at the beginning of the line.
+# a : Append (insert) just after the cursor.
+# A : Append at the end of the line.
+# o : Open a new line BELOW the cursor and insert.
+# O : Open a new line ABOVE the cursor and insert.
+
+# --- Ex Mode (Last Line Mode) ---
+# Access this mode by typing ':' from Command Mode. 
+# Used to save, exit, or run file commands.
+# :w         : Write (save) the current document.
+# :w [name]  : Save a copy under a new [name].
+# :q         : Quit (fails if there are unsaved changes).
+# :q!        : Force quit (exit WITHOUT saving changes).
+# :wq        : Write and Quit (Save and exit).
+# :[number]  : Go to a specific line number.
+
+# --- Good to Know: Quick Save and Exit ---
+# In Command Mode, typing ZZ (capital Z twice) is equivalent to :wq.
+
+# --- Practice ---
+# If you have a file open and want to exit without saving any mistakes:
+# Press Esc, then type:
+:q!
