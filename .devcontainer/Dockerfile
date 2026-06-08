@@ -80,30 +80,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
 
-# ----------------------------------------------------------------------------
-# SHELL: qué intérprete usar en los siguientes RUN
-# ----------------------------------------------------------------------------
-# Por defecto Docker usa /bin/sh (un shell más limitado y antiguo). Lo
-# cambiamos a bash por si agregamos más instrucciones con sintaxis
-# moderna (arrays, [[ ]], etc.).
+# h) Docker uses /bin/sh by default. We explicitly switch the default shell 
+# to /bin/bash because it provides more advanced features for later RUN steps 
+# (e.g., arrays, double bracket conditions) as outlined in BHB Ch. 1.
 SHELL ["/bin/bash", "-c"]
 
-
-# ----------------------------------------------------------------------------
-# WORKDIR: directorio de trabajo al entrar al contenedor
-# ----------------------------------------------------------------------------
-# Codespaces siempre monta el código del repositorio en
-# /workspaces/<nombre-del-repo>. Establecer /workspaces aquí hace que las
-# terminales se abran cerca de nuestros archivos del curso.
+# i) WORKDIR sets the default working directory for any subsequent instructions 
+# and determines where the user will be placed when they first enter the container.
 WORKDIR /workspaces
 
-# Configuración de Git para el contenedor:
-# - safe.directory *: confía en cualquier repo montado (necesario porque
-#   /workspaces/... tiene un UID distinto al de root dentro del container).
-# - init.defaultBranch main: evita warnings de "master vs main" en git init.
-# - pull.rebase false: merge por defecto al hacer pull (más intuitivo)
-# - git lfs install --system: registra los hooks de LFS globalmente para
-#   que, si un repo los necesita, funcionen sin sorpresas.
+# j) These commands configure global Git settings for the container:
+# - 'safe.directory *' prevents permission errors when accessing mounted repos.
+# - 'init.defaultBranch main' sets the default branch name for new repositories.
+# - 'pull.rebase false' sets the default pull behavior to merge.
+# - 'git lfs install' enables Large File Storage tracking globally.
 RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
