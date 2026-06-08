@@ -99,23 +99,21 @@ RUN git config --system --add safe.directory '*' \
  && git config --system pull.rebase false \
  && git lfs install --system
 
-# ----------------------------------------------------------------------------
-# CMD: comando que se ejecuta por defecto al arrancar el contenedor
-# ----------------------------------------------------------------------------
-# Lanza una shell bash interactiva. Codespaces la sobrescribe con su
-# propia terminal integrada de VS Code, pero es buena práctica dejarla
-# definida para que la imagen sea usable también con Docker puro.
-# Prompt del curso para bash
-
-# Cambiar shell de login de root a zsh dentro de la imagen,
-# para que chsh ya no haga falta y todo sea consistente.
+# k) The chsh command changes the default login shell for the root user to Zsh, 
+# ensuring a consistent, interactive terminal experience upon login.
 RUN chsh -s /usr/bin/zsh root
 
-# Prompt institucional para los y las estudiantes del curso
+# l) A here-document (heredoc) uses the << operator to redirect multiple lines 
+# of input into a command until a delimiter (EOF) is met (BHB Ch. 1). 
+# We append (>>) this block into .zshrc. The PROMPT variable customizes 
+# the visual layout and colors of the terminal prompt.
 RUN cat >> /root/.zshrc <<'EOF'
 
 # ===== Valida si un comando fue ejecutado correctamente =====
 PROMPT='%F{cyan}[Ariel-Guerrero]%f %F{yellow}%1~%f %(?.%F{green}✓.%F{red}✗ %?)%f %# '
 EOF
 
+# m) CMD vs RUN: RUN executes commands during the image build process to create layers. 
+# CMD, however, specifies the default command that will execute only at startup 
+# when the container is actually launched.
 CMD ["/usr/bin/zsh"]
