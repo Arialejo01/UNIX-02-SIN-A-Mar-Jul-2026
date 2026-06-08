@@ -66,17 +66,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tor torsocks proxychains4 obfs4proxy \
     httpie \
 
-    
- # --- Después de instalar, activamos el idioma español ---
- # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
- # activar esa línea. Luego locale-gen compila los archivos de idioma.
+
+ # f) We use sed, a stream editor (BHB Ch. 2), to search and uncomment the 
+ # Spanish locale line inside the locale.gen file. Then locale-gen compiles it.
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
- # --- Limpieza final: reducir el tamaño de la imagen ---
- # apt deja archivos de caché que ya no necesitamos después de instalar.
- # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
- # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
+ # g) We run apt-get clean and remove the downloaded package lists to free up space. 
+ # This cleanup MUST happen in the exact same RUN instruction. If we cleaned up 
+ # in a separate RUN, the cached files would remain permanently baked into the 
+ # previous Docker layer, defeating the purpose of deleting them.
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
