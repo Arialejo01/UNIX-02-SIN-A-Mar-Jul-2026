@@ -33,3 +33,12 @@ fi
 # The root user (the ultimate administrator) ALWAYS has an EUID of 0. 
 # Therefore, checking if EUID equals 0 is the standard way to verify 
 # if a script is being run with administrator/root privileges.
+
+# Creates a new user account named 'luna' and also creates their home directory (/home/luna) because of the '-m' flag.
+useradd -m luna
+
+# Switches the current user session to the newly created user 'luna' ('su' stands for substitute user).
+su luna
+
+# Runs the bash script named 'check_root_function.sh' (the script from your previous question) using the bash interpreter.
+bash check_root_function.sh
