@@ -19,4 +19,17 @@ grep "42.236.10.117" log.txt | awk '{print $7}'
 sed 's/Mozilla/Godzilla/g' log.txt
 grep "zilla" log.txt
 sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt
-grep "zilla" log.txt
+grep "zilla" newlog.txt
+sed -i '1d' newlog.txt
+grep "157.48.153.185" newlog.txt
+grep "157.48.153.185" log.txt
+git diff newlog.txt
+git diff log.txt
+sed -i '1d' log.txt
+sed 's/ //g' log.txt
+sed 's/ //g' log.txt > newlog1.txt
+sed '8,10d' newlog1.txt
+sed -n '10,15 p' newlog1.txt
+sleep 300 &
+jobs
+fg %1
