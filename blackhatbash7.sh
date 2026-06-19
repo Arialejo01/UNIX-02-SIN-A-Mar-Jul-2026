@@ -33,3 +33,4 @@ sed -n '10,15 p' newlog1.txt
 sleep 300 &
 jobs
 fg %1
+nohup ./my_script.sh &
